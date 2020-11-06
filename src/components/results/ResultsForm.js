@@ -45,12 +45,17 @@ class ResultsForm extends Component {
                         <Form.Field>
                             <Form.Input 
                               label="Sample ID" 
-                              placeholder="FR# or SD#" />
+                              placeholder="FR# or SD#" 
+                              required
+                            />
                         </Form.Field>
                         <Form.Field>
                             <Form.Input 
                               label="Date of Birth" 
-                              placeholder="01/01/2020" />
+                              placeholder="dd/mm/yyyy"
+                              type="date" 
+                              required
+                            />
                         </Form.Field>
                         <Button type="submit" color="blue">See Results</Button>
                     </Form>
