@@ -4,7 +4,7 @@ import logo from '../src/components/images/OrcaLogo-Blue.png'
 const App = () => (
   <>
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: '10em'}} > 
-      <img src={logo} />
+      <img src={logo} alt="orca biotech logo" />
     </div>
     <ResultsForm></ResultsForm>
   </>
