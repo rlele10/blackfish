@@ -52,7 +52,6 @@ class ResultsForm extends Component {
                         <Form.Field>
                             <Form.Input 
                               label="Date of Birth" 
-                              placeholder="dd/mm/yyyy"
                               type="date" 
                               required
                             />
