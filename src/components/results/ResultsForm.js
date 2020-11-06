@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Grid, Form, Button} from 'semantic-ui-react';
+import { Container, Grid, Form} from 'semantic-ui-react';
+import styled from 'styled-components'
+
 
 class ResultsForm extends Component {
 
@@ -41,7 +43,7 @@ class ResultsForm extends Component {
         <Grid centered >
             <Grid.Row >
                 <Grid.Column width={6}>
-                    <Form>
+                    <Form onSubmit={this.handleSubmit}>
                         <Form.Field>
                             <Form.Input 
                               label="Sample ID" 
@@ -56,7 +58,7 @@ class ResultsForm extends Component {
                               required
                             />
                         </Form.Field>
-                        <Button type="submit" color="blue">See Results</Button>
+                        <SubmitButton >See Results</SubmitButton>
                     </Form>
                 </Grid.Column>
             </Grid.Row>
@@ -71,28 +73,16 @@ class ResultsForm extends Component {
   export default ResultsForm;
 
 
-    // <
-  // form onSubmit = {
-  //   this.handleSubmit
-  // } >
-  // <
-  // label htmlFor = "username" > Enter username < /label> <
-  // input id = "username"
-  // name = "username"
-  // type = "text" / >
+  const SubmitButton = styled.button`
+    color: white;
+    background-color: #0058A2;
+    border-radius: 8px;
+    width: 10em;
+    height: auto;
+    
+    &:hover {
+      background-color: white;
+      color: #0058A2
+    }
 
-  // <
-  // label htmlFor = "email" > Enter your email < /label> <
-  // input id = "email"
-  // name = "email"
-  // type = "email" / >
-
-  // <
-  // label htmlFor = "birthdate" > Enter your birth date < /label> <
-  // input id = "birthdate"
-  // name = "birthdate"
-  // type = "text" / >
-
-  // <
-  // button > Send data! < /button> < /
-  // form >
+  `;

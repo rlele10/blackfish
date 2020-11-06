@@ -1,11 +1,9 @@
 import ResultsForm from './components/results/ResultsForm';
-import logo from '../src/components/images/OrcaLogo-Blue.png'
+import OrcaLogo from './components/images/OrcaLogo';
 
 const App = () => (
   <>
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: '10em'}} > 
-      <img src={logo} alt="orca biotech logo" />
-    </div>
+    <OrcaLogo></OrcaLogo>
     <ResultsForm></ResultsForm>
   </>
 )
