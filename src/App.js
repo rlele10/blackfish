@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://api.airtable.com/v0/appKhP0lyazMGCfUR/results/rec00Ri5bwb7Xw8gc/?api_key=keyKIECB3GLzSZLdQ')
+    fetch('https://api.airtable.com/v0/appKhP0lyazMGCfUR/results/?api_key=keyKIECB3GLzSZLdQ')
       .then((resp) => resp.json())
       .then(data => {
         console.log(data.records)
