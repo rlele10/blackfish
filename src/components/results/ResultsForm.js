@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Container, Grid, Form} from 'semantic-ui-react';
-import styled from 'styled-components'
+import { SubmitButton } from '../styles/Button'
+
 import { useHistory } from 'react-router-dom';
 import { ResultShow } from './ResultShow'
 import { withRouter } from 'react-router-dom';
@@ -58,17 +59,17 @@ class ResultsForm extends PureComponent {
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Field>
                             <Form.Input 
-                              label="Last Name" 
-                              placeholder="Please enter your last name" 
-                              name = "last_name"
+                              label="Access Code" 
+                              placeholder="Email Access Code" 
+                              name = "test_id"
                               required
                             />
                         </Form.Field>
                         <Form.Field>
                             <Form.Input 
-                              label="Access Code" 
-                              placeholder="Access Code" 
-                              name = "test_id"
+                              label="Last Name" 
+                              placeholder="Last Name" 
+                              name = "last_name"
                               required
                             />
                         </Form.Field>
@@ -80,7 +81,7 @@ class ResultsForm extends PureComponent {
                               required
                             />
                         </Form.Field>
-                        <SubmitButton  type="submit" >Get Result</SubmitButton>
+                        <SubmitButton  type="submit" >View Result</SubmitButton>
                     </Form>
                 </Grid.Column>
             </Grid.Row>
@@ -95,47 +96,3 @@ class ResultsForm extends PureComponent {
   export default withRouter(ResultsForm);
 
 
-  const SubmitButton = styled.button`
-    color: white;
-    background-color: #0058A2;
-    border-radius: 4px;
-    border: 2.5px solid black;
-    padding: .25em;
-
-    @media (min-width: 320px) and (max-width: 480px) {
-      width: 8em;
-      height: auto;
-      font-size: .9em;
-    }
-
-    @media (min-width: 481px) and (max-width: 767px) {
-      width: 12em;
-      height: auto;
-      font-size: 1em;
-    }
-
-    @media (min-width: 768px) and (max-width: 1024px) {
-      width: 12em;
-      height: auto;
-      font-size: 1.25em;
-    }
-
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      width: 14em;
-      height: auto;
-      font-size: 1.25em;
-    }
-
-    @media (min-width: 1281px) {
-      width: 14em;
-      height: auto;
-      font-size: 1.5em;
-    }
-
-    
-    &:hover {
-      background-color: white;
-      color: #0058A2
-    }
-
-  `;
