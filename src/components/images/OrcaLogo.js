@@ -13,8 +13,7 @@ export default OrcaLogo;
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 5em;
+  margin: 4em;
 `;
 
 const ImageSize = styled.img`

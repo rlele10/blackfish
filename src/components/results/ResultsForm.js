@@ -42,7 +42,7 @@ class ResultsForm extends Component {
     <Container>
         <Grid centered >
             <Grid.Row >
-                <Grid.Column width={9}>
+                <Grid.Column width={12}>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Field>
                             <Form.Input 
@@ -58,7 +58,8 @@ class ResultsForm extends Component {
                               required
                             />
                         </Form.Field>
-                        <SubmitButton >See Results</SubmitButton>
+                        <br></br>
+                        <SubmitButton >View Results</SubmitButton>
                     </Form>
                 </Grid.Column>
             </Grid.Row>
@@ -76,9 +77,40 @@ class ResultsForm extends Component {
   const SubmitButton = styled.button`
     color: white;
     background-color: #0058A2;
-    border-radius: 8px;
-    width: 10em;
-    height: auto;
+    border-radius: 4px;
+    border: 2.5px solid black;
+    padding: .25em;
+
+    @media (min-width: 320px) and (max-width: 480px) {
+      width: 8em;
+      height: auto;
+      font-size: .9em;
+    }
+
+    @media (min-width: 481px) and (max-width: 767px) {
+      width: 12em;
+      height: auto;
+      font-size: 1em;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      width: 12em;
+      height: auto;
+      font-size: 1.25em;
+    }
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      width: 14em;
+      height: auto;
+      font-size: 1.25em;
+    }
+
+    @media (min-width: 1281px) {
+      width: 14em;
+      height: auto;
+      font-size: 1.5em;
+    }
+
     
     &:hover {
       background-color: white;
