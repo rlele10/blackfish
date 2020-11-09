@@ -42,7 +42,7 @@ class ResultsForm extends Component {
     <Container>
         <Grid centered >
             <Grid.Row >
-                <Grid.Column width={6}>
+                <Grid.Column width={9}>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Field>
                             <Form.Input 

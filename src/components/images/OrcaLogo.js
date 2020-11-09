@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const OrcaLogo = () => (
   <ImageContainer>
-    <img src={logo} alt="orca biotech logo" />
+    <ImageSize src={logo} alt="orca biotech logo"/>
   </ImageContainer>
 )
 
@@ -15,4 +15,10 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 5em;
+`;
+
+const ImageSize = styled.img`
+  width: 100%;
+  max-width: 45em;
+  height: auto;
 `;
