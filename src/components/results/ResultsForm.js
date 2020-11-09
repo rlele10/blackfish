@@ -14,41 +14,35 @@ class ResultsForm extends PureComponent {
   handleSubmit(event) {
 
     event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(data.get('sample_id'))
-    console.log(data.get('test_id'))
-    console.log(data.get('birth_day'))
-    let url = 'https://api.airtable.com/v0/appKhP0lyazMGCfUR/Results/'+data.get('test_id')+'/?api_key=keyKIECB3GLzSZLdQ'
+    const userData = new FormData(event.target);
+  
+    let url = 'https://api.airtable.com/v0/appKhP0lyazMGCfUR/Results/'+userData.get('test_id')+'/?api_key=keyKIECB3GLzSZLdQ'
     fetch(url)
       .then((resp) => resp.json())
       .then(data => {
         if(data.error)
          {
-          console.log("Sorry no test result found")
+         alert("Sorry..!!No test result found")
+         }
+        else{
+         if(userData.get('last_name')== data.fields.Patient_Last_Name){  
+          const { history } = this.props;
+          if(history)
+                {
+                  history.push({ 
+                    pathname: '/view-result',
+                    state : data.fields
+                  });
+                }
+            
          }
          else{
-           console.log(data)
-           const { history } = this.props;
-   if(history) history.push({ 
-    pathname: '/test-result',
-    state : data.fields
-   });
-           
+
+           alert("Record does not match. Please enter correct details")
          }
-       // console.log(data.records.filter( x=> x.fields.Sample_ID == data.get('sample_id') ))
+         }
       }).catch(err => {
        
-        // Error :(
-      });
-  }
-
-  componentDidMount() {
-    fetch('https://api.airtable.com/v0/appKhP0lyazMGCfUR/Results/rec00SThSFCscRobA/?api_key=keyKIECB3GLzSZLdQ')
-      .then((resp) => resp.json())
-      .then(data => {
-        console.log(data)
-      
-      }).catch(err => {
         // Error :(
       });
   }
@@ -64,9 +58,9 @@ class ResultsForm extends PureComponent {
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Field>
                             <Form.Input 
-                              label="Sample ID" 
-                              placeholder="FR# or SD#" 
-                              name = "sample_id"
+                              label="Last Name" 
+                              placeholder="Please enter your last name" 
+                              name = "last_name"
                               required
                             />
                         </Form.Field>
@@ -86,7 +80,7 @@ class ResultsForm extends PureComponent {
                               required
                             />
                         </Form.Field>
-                        <SubmitButton  type="submit" >See Results</SubmitButton>
+                        <SubmitButton  type="submit" >Get Result</SubmitButton>
                     </Form>
                 </Grid.Column>
             </Grid.Row>
