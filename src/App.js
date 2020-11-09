@@ -8,7 +8,7 @@ const App = () => (
   <Router>
     <OrcaLogo></OrcaLogo>
     <Route  exact path="/" component={ResultsForm} />
-    <Route  exact path="/my-test-results/:id" component={ResultsForm} />
+    <Route   path="/my-test-results/:id" component={ResultsForm} />
     <Route path="/view-result" component={ResultsShow} />
   </Router>
 )
