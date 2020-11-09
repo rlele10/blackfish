@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 const App = () => (
   <Router>
     <OrcaLogo></OrcaLogo>
-
-    <Route   exact path="/my-test-results" component={ResultsForm} />
+    <Route  exact path="/" component={ResultsForm} />
+    <Route  exact path="/my-test-results" component={ResultsForm} />
     <Route path="/view-result" component={ResultsShow} />
   </Router>
 )
