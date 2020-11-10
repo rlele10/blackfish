@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Container, Grid, Form} from 'semantic-ui-react';
 import { SubmitButton } from '../styles/Button'
-
-import { useHistory } from 'react-router-dom';
-import { ResultShow } from './ResultShow'
 import { withRouter } from 'react-router-dom';
 
 class ResultsForm extends PureComponent {

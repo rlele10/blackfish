@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from "react-router-dom";
-import { Icon, Table } from 'semantic-ui-react'
+import {  Table } from 'semantic-ui-react'
 const ResultShow = props => {
   console.log(props)
  
