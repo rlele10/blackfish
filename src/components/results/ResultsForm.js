@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { Container, Grid, Form} from 'semantic-ui-react';
 import { SubmitButton } from '../styles/Button'
 import { withRouter } from 'react-router-dom';
+import Disclaimer from '../shared/Disclaimer'
+
 
 class ResultsForm extends PureComponent {
   constructor() {
@@ -73,6 +75,7 @@ class ResultsForm extends PureComponent {
                         <Form.Field>
                             <Form.Input 
                               label="Date of Birth" 
+                              placeholder="mm/dd/yyyy"
                               type="date" 
                               name = "birth_day"
                               required
@@ -82,6 +85,7 @@ class ResultsForm extends PureComponent {
                     </Form>
                 </Grid.Column>
             </Grid.Row>
+            <Disclaimer></Disclaimer>
         </Grid>
     </Container>
 
