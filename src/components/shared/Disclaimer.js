@@ -1,4 +1,4 @@
-import { Container, Grid, Form} from 'semantic-ui-react';
+import { Container, Grid} from 'semantic-ui-react';
 
 
 const Disclaimer = () => (
