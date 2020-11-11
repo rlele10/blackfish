@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import {  Table, Container, BreadcrumbDivider } from 'semantic-ui-react'
+import {  Table, Header } from 'semantic-ui-react'
 import styled from 'styled-components'
 import { TableContainer } from '../styles/Table'
 
@@ -27,7 +27,7 @@ const ResultShow = props => {
                 <Table.Cell> {props.location.state.Report_Date}  </Table.Cell>
               </Table.Row>
               <Table.Row >
-                <Table.Cell>Test Result</Table.Cell>
+                <Table.Cell>{`${props.location.state.Panel_Test_Type} Result`}</Table.Cell>
                 <Table.Cell> {props.location.state.Test_Result}  </Table.Cell>
               </Table.Row>
             </Table.Body>
