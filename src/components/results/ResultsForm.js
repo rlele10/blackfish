@@ -22,7 +22,7 @@ class ResultsForm extends PureComponent {
       .then(data => {
         if(data.error)
          {
-         alert("Sorry..!!No test result found")
+         alert("Test result not found. Please double check you access code (copy and paste from email), last name, and birth date. Ensure there are no spaces in entries.")
          }
         else{
          if(userData.get('last_name')== data.fields.Patient_Last_Name){  
