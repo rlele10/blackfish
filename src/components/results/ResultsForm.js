@@ -16,7 +16,7 @@ class ResultsForm extends PureComponent {
     event.preventDefault();
     const userData = new FormData(event.target);
   
-    let url = 'https://api.airtable.com/v0/appKhP0lyazMGCfUR/Results/'+userData.get('test_id')+'/?api_key=keyKIECB3GLzSZLdQ'
+    let url = 'https://api.airtable.com/v0/appKhP0lyazMGCfUR/Tests/'+userData.get('test_id')+'/?api_key=keyKIECB3GLzSZLdQ'
     fetch(url)
       .then((resp) => resp.json())
       .then(data => {
