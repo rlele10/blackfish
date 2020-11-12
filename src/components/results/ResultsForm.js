@@ -76,7 +76,7 @@ class ResultsForm extends PureComponent {
                         <Form.Field>
                             <Form.Input 
                               label="Date of Birth" 
-                              placeholder="mm/dd/yyyy"
+                              placeholder="yyyy-mm-dd"
                               type="date" 
                               name = "birth_day"
                               required
