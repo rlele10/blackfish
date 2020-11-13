@@ -1,12 +1,11 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import {  Table, Header } from 'semantic-ui-react'
-import styled from 'styled-components'
 import { TableContainer } from '../styles/Table'
 
 
 
-const ResultShow = props => {
+const PatientResultsShow = props => {
   console.log(props)
  
     return (
@@ -55,5 +54,5 @@ const ResultShow = props => {
     );
 };
 
-export default ResultShow;
+export default PatientResultsShow;
 
