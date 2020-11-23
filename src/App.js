@@ -3,7 +3,7 @@ import PatientResultsShow from './components/patient/PatientResultsShow';
 import ProviderResultsForm from './components/provider/ProviderResultsForm';
 import ProviderResultsShow from './components/provider/ProviderResultsShow';
 import OrcaLogo from './components/images/OrcaLogo';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 const App = () => (
