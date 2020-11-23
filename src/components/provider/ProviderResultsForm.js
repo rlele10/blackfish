@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import Disclaimer from '../shared/Disclaimer'
 
 
-class ResultsForm extends PureComponent {
+class ProviderResultsForm extends PureComponent {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,22 +16,22 @@ class ResultsForm extends PureComponent {
     event.preventDefault();
     const userData = new FormData(event.target);
   
-    let url = 'https://api.airtable.com/v0/appKhP0lyazMGCfUR/Tests/'+userData.get('test_id')+'/?api_key=keyKIECB3GLzSZLdQ'
+    let url = 'https://api.airtable.com/v0/appKhP0lyazMGCfUR/Providers/'+userData.get('record_id')+'/?api_key=keyKIECB3GLzSZLdQ'
     fetch(url)
       .then((resp) => resp.json())
       .then(data => {
         if(data.error)
          {
-         alert("Test result not found. Please double check you access code (copy and paste from email), last name, and birth date. Ensure there are no spaces in entries.")
+         alert("Patient list not found. Please double check you provider ID (sent via email), first name, last name, and NPI number. Ensure there are no spaces in entries.")
          }
         else{
-         if(userData.get('last_name')== data.fields.Patient_Last_Name && Object.values(data.fields.Patient_DOB)==userData.get('birth_day')){  
+         if(userData.get('provider_last_name')== data.fields.Provider_Last_Name) {  
       
           const { history } = this.props;
           if(history)
                 {
                   history.push({ 
-                    pathname: '/view-result',
+                    pathname: '/view-patient-list',
                     state : data.fields
                   });
                 }
@@ -61,7 +61,7 @@ class ResultsForm extends PureComponent {
                             <Form.Input 
                               label="Access Code" 
                               placeholder="Email Access Code" 
-                              name = "test_id"
+                              name = "record_id"
                               required
                             />
                         </Form.Field>
@@ -69,20 +69,19 @@ class ResultsForm extends PureComponent {
                             <Form.Input 
                               label="Last Name" 
                               placeholder="Last Name" 
-                              name = "last_name"
+                              name = "provider_last_name"
                               required
                             />
                         </Form.Field>
                         <Form.Field>
                             <Form.Input 
-                              label="Date of Birth" 
-                              placeholder="yyyy-mm-dd"
-                              type="date" 
-                              name = "birth_day"
+                              label="NPI Number" 
+                              placeholder="NPI Number"
+                              name = "npi_num"
                               required
                             />
                         </Form.Field>
-                        <SubmitButton  type="submit" >View Result</SubmitButton>
+                        <SubmitButton  type="submit" >View Patient List</SubmitButton>
                     </Form>
                 </Grid.Column>
             </Grid.Row>
@@ -95,6 +94,6 @@ class ResultsForm extends PureComponent {
   }
   
   
-  export default withRouter(ResultsForm);
+  export default withRouter(ProviderResultsForm);
 
 
