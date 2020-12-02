@@ -3,7 +3,11 @@ import { Container, Grid, Form} from 'semantic-ui-react';
 import { SubmitButton } from '../styles/Button'
 import { withRouter } from 'react-router-dom';
 import Disclaimer from '../shared/Disclaimer'
-
+import {useRecordById, useRecordIds, useBase} from '@airtable/blocks/ui';
+import Airtable from 'airtable';
+import {  Table, Header, Card } from 'semantic-ui-react'
+import { TableContainer } from '../styles/Table'
+import PatientList from '../patient/PatientList'
 
 class ProviderResultsForm extends PureComponent {
   constructor() {
@@ -11,49 +15,96 @@ class ProviderResultsForm extends PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount(){
+    document.getElementById('results').style.display='none'; 
+    
+
+
+  }
+
   handleSubmit(event) {
+    
+
+    const base1 = useBase();
+    const table = base1.getTableByName('Tasks');
+    const view = table.getViewByName('Grid view');
+
+
 
     event.preventDefault();
     const userData = new FormData(event.target);
+    let resultFound = false;
+    const base = new Airtable({apiKey: "keyKIECB3GLzSZLdQ"}).base('appKhP0lyazMGCfUR')
+   // console.log(base("Providers").select({view: "All"}).all())
+
   
-    let url = 'https://api.airtable.com/v0/appKhP0lyazMGCfUR/Providers/'+userData.get('record_id')+'/?api_key=keyKIECB3GLzSZLdQ'
-    fetch(url)
-      .then((resp) => resp.json())
-      .then(data => {
-        if(data.error)
-         {
-         alert("Patient list not found. Please double check you provider ID (sent via email), first name, last name, and NPI number. Ensure there are no spaces in entries.")
-         }
-        else{
-         if(userData.get('provider_last_name')== data.fields.Provider_Last_Name) {  
-      
-          const { history } = this.props;
-          if(history)
+
+   base("Providers")
+    .select({view: "All"})
+    .eachPage((records, fetchNextPage) => {
+      console.log(records)
+      const provider = records.filter(provider => 
+    provider.fields.Provider_Last_Name == userData.get('provider_last_name') 
+    //&& 
+    // provider.fields.id == userData.get('record_id') && 
+    // provider.fields.National_Provider_Identifier == userData.get('npi_num') 
+    ) 
+    if(provider.length == 0 )
+    {
+     fetchNextPage();
+    }
+   else{
+    alert();
+    const { history } = this.props;
+            if(history)
                 {
                   history.push({ 
                     pathname: '/view-patient-list',
-                    state : data.fields
+                    state : records
                   });
                 }
-            
-         }
-         else{
+   }
+  
+  
+  
+    })
 
-           alert("Record does not match. Please enter correct details")
-         }
-         }
-      }).catch(err => {
+    let url = 'https://api.airtable.com/v0/appKhP0lyazMGCfUR/Providers/'+userData.get('record_id')+'/?api_key=keyKIECB3GLzSZLdQ'
+    // fetch(url)
+    //   .then((resp) => resp.json())
+    //   .then(data => {
+    //     if(data.error)
+    //      {
+    //      alert("Patient list not found. Please double check you provider ID (sent via email), first name, last name, and NPI number. Ensure there are no spaces in entries.")
+    //      }
+    //     else{
+    //      if(userData.get('provider_last_name')== data.fields.Provider_Last_Name) {  
+      
+    //       const { history } = this.props;
+    //       if(history)
+    //             {
+    //               history.push({ 
+    //                 pathname: '/view-patient-list',
+    //                 state : data.fields
+    //               });
+    //             }
+            
+    //      }
+    //      else{
+
+    //        alert("Record does not match. Please enter correct details")
+    //      }
+    //      }
+    //   }).catch(err => {
        
-        // Error :(
-      });
+    //     // Error :(
+    //   });
   }
 
   render() {
-    const { history } = this.props;
     return (
-
     <Container>
-        <Grid centered >
+        <Grid centered id="providerForm" >
             <Grid.Row >
                 <Grid.Column width={12}>
                     <Form onSubmit={this.handleSubmit}>
@@ -82,11 +133,26 @@ class ProviderResultsForm extends PureComponent {
                             />
                         </Form.Field>
                         <SubmitButton  type="submit" >View Patient List</SubmitButton>
+                  
                     </Form>
                 </Grid.Column>
             </Grid.Row>
             <Disclaimer></Disclaimer>
         </Grid>
+
+        <div id="results">
+        <Header as='h3' textAlign='center'> Patient List</Header>
+
+        <div style={{textAlign: 'center'}}>
+          
+        </div>
+
+        <br></br>
+
+     
+
+        <br></br>
+        </div>
     </Container>
 
       );

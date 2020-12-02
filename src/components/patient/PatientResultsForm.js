@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useEffect } from 'react';
 import { Container, Grid, Form} from 'semantic-ui-react';
 import { SubmitButton } from '../styles/Button'
 import { withRouter } from 'react-router-dom';
 import Disclaimer from '../shared/Disclaimer'
-
+import Airtable from 'airtable';
 
 class PatientResultsForm extends PureComponent {
   constructor() {

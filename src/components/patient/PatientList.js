@@ -1,15 +1,16 @@
 import React from 'react';
 
 const PatientList = props => {
+  alert("pppp")
   console.log(props)
-  const patientRecords = [...props.location.state.Tests];
-  const listPatientRecords = patientRecords.map((patientRecord) => 
-    <ul>{patientRecord}</ul>
-  );
+  // const patientRecords = [...props.location.state.Tests];
+  // const listPatientRecords = patientRecords.map((patientRecord) => 
+  //   <ul>{patientRecord}</ul>
+ // );
 
     return (
       <>
-        {listPatientRecords}
+        <div>dsddddddddddddddddddd</div>
       </>
     );
 };
