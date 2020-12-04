@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import { Container, Grid, Form} from 'semantic-ui-react';
 import { SubmitButton } from '../styles/Button'
 import { withRouter } from 'react-router-dom';
-import Disclaimer from '../shared/Disclaimer'
+import Disclaimer from '../shared/Disclaimer';
+import OrcaLogo from '../images/OrcaLogo';
 
 
 class ProviderResultsForm extends PureComponent {
@@ -53,40 +54,41 @@ class ProviderResultsForm extends PureComponent {
     return (
 
     <Container>
-        <Grid centered >
-            <Grid.Row >
-                <Grid.Column width={12}>
-                    <Form onSubmit={this.handleSubmit}>
-                        <Form.Field>
-                            <Form.Input 
-                              label="Access Code" 
-                              placeholder="Email Access Code" 
-                              name = "record_id"
-                              required
-                            />
-                        </Form.Field>
-                        <Form.Field>
-                            <Form.Input 
-                              label="Last Name" 
-                              placeholder="Last Name" 
-                              name = "provider_last_name"
-                              required
-                            />
-                        </Form.Field>
-                        <Form.Field>
-                            <Form.Input 
-                              label="NPI Number" 
-                              placeholder="NPI Number"
-                              name = "npi_num"
-                              required
-                            />
-                        </Form.Field>
-                        <SubmitButton  type="submit" >View Patient List</SubmitButton>
-                    </Form>
-                </Grid.Column>
-            </Grid.Row>
-            <Disclaimer></Disclaimer>
-        </Grid>
+      <OrcaLogo></OrcaLogo>
+          <Grid centered >
+              <Grid.Row >
+                  <Grid.Column width={12}>
+                      <Form onSubmit={this.handleSubmit}>
+                          <Form.Field>
+                              <Form.Input 
+                                label="Access Code" 
+                                placeholder="Email Access Code" 
+                                name = "record_id"
+                                required
+                              />
+                          </Form.Field>
+                          <Form.Field>
+                              <Form.Input 
+                                label="Last Name" 
+                                placeholder="Last Name" 
+                                name = "provider_last_name"
+                                required
+                              />
+                          </Form.Field>
+                          <Form.Field>
+                              <Form.Input 
+                                label="NPI Number" 
+                                placeholder="NPI Number"
+                                name = "npi_num"
+                                required
+                              />
+                          </Form.Field>
+                          <SubmitButton  type="submit" >View Patient List</SubmitButton>
+                      </Form>
+                  </Grid.Column>
+              </Grid.Row>
+              <Disclaimer></Disclaimer>
+          </Grid>
     </Container>
 
       );

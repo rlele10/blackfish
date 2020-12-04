@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Container, Grid, Form} from 'semantic-ui-react';
-import { SubmitButton } from '../styles/Button'
+import { SubmitButton } from '../styles/Button';
 import { withRouter } from 'react-router-dom';
-import Disclaimer from '../shared/Disclaimer'
-
+import Disclaimer from '../shared/Disclaimer';
+import OrcaLogo from '../images/OrcaLogo';
 
 class PatientResultsForm extends PureComponent {
   constructor() {
@@ -53,41 +53,42 @@ class PatientResultsForm extends PureComponent {
     return (
 
     <Container>
-        <Grid centered >
-            <Grid.Row >
-                <Grid.Column width={12}>
-                    <Form onSubmit={this.handleSubmit}>
-                        <Form.Field>
-                            <Form.Input 
-                              label="Access Code" 
-                              placeholder="Email Access Code" 
-                              name = "test_id"
-                              required
-                            />
-                        </Form.Field>
-                        <Form.Field>
-                            <Form.Input 
-                              label="Last Name" 
-                              placeholder="Last Name" 
-                              name = "last_name"
-                              required
-                            />
-                        </Form.Field>
-                        <Form.Field>
-                            <Form.Input 
-                              label="Date of Birth" 
-                              placeholder="yyyy-mm-dd"
-                              type="date" 
-                              name = "birth_day"
-                              required
-                            />
-                        </Form.Field>
-                        <SubmitButton  type="submit" >View Result</SubmitButton>
-                    </Form>
-                </Grid.Column>
-            </Grid.Row>
-            <Disclaimer></Disclaimer>
-        </Grid>
+      <OrcaLogo></OrcaLogo>
+          <Grid centered >
+              <Grid.Row >
+                  <Grid.Column width={12}>
+                      <Form onSubmit={this.handleSubmit}>
+                          <Form.Field>
+                              <Form.Input 
+                                label="Access Code" 
+                                placeholder="Email Access Code" 
+                                name = "test_id"
+                                required
+                              />
+                          </Form.Field>
+                          <Form.Field>
+                              <Form.Input 
+                                label="Last Name" 
+                                placeholder="Last Name" 
+                                name = "last_name"
+                                required
+                              />
+                          </Form.Field>
+                          <Form.Field>
+                              <Form.Input 
+                                label="Date of Birth" 
+                                placeholder="yyyy-mm-dd"
+                                type="date" 
+                                name = "birth_day"
+                                required
+                              />
+                          </Form.Field>
+                          <SubmitButton  type="submit" >View Result</SubmitButton>
+                      </Form>
+                  </Grid.Column>
+              </Grid.Row>
+              <Disclaimer></Disclaimer>
+          </Grid>
     </Container>
 
       );
