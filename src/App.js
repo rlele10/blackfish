@@ -2,7 +2,8 @@ import PatientResultsForm from './components/patient/PatientResultsForm';
 import PatientResultsShow from './components/patient/PatientResultsShow';
 import ProviderResultsForm from './components/provider/ProviderResultsForm';
 import ProviderResultsShow from './components/provider/ProviderResultsShow';
-import PatientIntakeForm from './components/patient/IntakeForm'
+import PatientIntakeForm from './components/patient/PatientIntake'
+import ProviderIntakeForm from './components/provider/ProviderIntake'
 import ErrorPage from './components/health/ErrorPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ const App = () => (
     <Route  exact path="/" component={PatientResultsForm} />
     <Route  exact path="/my-test-results" component={PatientResultsForm} />
     <Route  exact path="/patient-intake" component={PatientIntakeForm} />
+    <Route  exact path="/provider-intake" component={ProviderIntakeForm} />
     <Route path="/view-result" component={PatientResultsShow} />
     <Route exact path="/provider-results" component={ProviderResultsForm} />
     <Route path="/view-patient-list" component={ProviderResultsShow} />
