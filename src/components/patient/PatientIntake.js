@@ -9,7 +9,10 @@ const PatientIntakeForm = props => {
  
     return (
       <>
-        <OrcaLogo></OrcaLogo>
+        <NavLink to="/" >
+          <OrcaLogo></OrcaLogo>
+        </NavLink>
+
         <Header as='h2' textAlign='center'>Patient Intake Form</Header>
           <div style={{textAlign: 'center'}}>
             <iframe 

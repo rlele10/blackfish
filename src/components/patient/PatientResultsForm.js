@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Container, Grid, Form} from 'semantic-ui-react';
 import { SubmitButton } from '../styles/Button';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import Disclaimer from '../shared/Disclaimer';
 import OrcaLogo from '../images/OrcaLogo';
 
@@ -25,7 +25,7 @@ class PatientResultsForm extends PureComponent {
          alert("Test result not found. Please double check you access code (copy and paste from email), last name, and birth date. Ensure there are no spaces in entries.")
          }
         else{
-         if(userData.get('last_name')=== data.fields.Patient_Last_Name && Object.values(data.fields.Patient_DOB)===userData.get('birth_day')){  
+         if(userData.get('last_name')== data.fields.Patient_Last_Name && Object.values(data.fields.Patient_DOB)==userData.get('birth_day')){  
       
           const { history } = this.props;
           if(history)
@@ -53,7 +53,9 @@ class PatientResultsForm extends PureComponent {
     return (
 
     <Container>
-      <OrcaLogo></OrcaLogo>
+        <NavLink to="/" >
+          <OrcaLogo></OrcaLogo>
+        </NavLink>
           <Grid centered >
               <Grid.Row >
                   <Grid.Column width={12}>

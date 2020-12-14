@@ -12,7 +12,9 @@ const PatientResultsShow = props => {
  
     return (
       <>
-        <OrcaLogo></OrcaLogo>
+        <NavLink to="/" >
+          <OrcaLogo></OrcaLogo>
+        </NavLink>
           <Header as='h3' textAlign='center'>Confidential Test Report</Header>
           <TableContainer>
             <Table celled striped>

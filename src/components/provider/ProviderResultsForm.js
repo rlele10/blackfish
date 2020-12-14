@@ -26,7 +26,7 @@ class ProviderResultsForm extends PureComponent {
          alert("Patient list not found. Please double check you provider ID (sent via email), first name, last name, and NPI number. Ensure there are no spaces in entries.")
          }
         else{
-         if(userData.get('provider_last_name')=== data.fields.Provider_Last_Name) {  
+         if(userData.get('provider_last_name')== data.fields.Provider_Last_Name) {  
       
           const { history } = this.props;
           if(history)
@@ -50,7 +50,7 @@ class ProviderResultsForm extends PureComponent {
   }
 
   render() {
-    
+
     return (
 
     <Container>
