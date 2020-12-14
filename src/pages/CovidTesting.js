@@ -33,7 +33,7 @@ const CovidTesting= props => {
           <div style={{textAlign: 'center'}}>
             <NavLink to="/patient-intake">
               <SubmitButton >
-                Patient
+                I am a Patient
               </SubmitButton>
             </NavLink>
           </div>
@@ -43,7 +43,7 @@ const CovidTesting= props => {
           <div style={{textAlign: 'center'}}>
             <NavLink to="/provider-intake">
               <SubmitButton>
-                Provider
+                I am a Provider
               </SubmitButton>
             </NavLink>
           </div>
@@ -52,11 +52,18 @@ const CovidTesting= props => {
           <br></br>
 
           <Header as='h3' textAlign='center'> 
-            If you've received an email saying results are ready you can view them&nbsp;
-            <NavLink to="/my-test-results">
-               here.
-            </NavLink>
+            If you've received an email saying results are ready click the button below.
           </Header>
+
+          <br></br>
+
+          <div style={{textAlign: 'center'}}>
+            <NavLink to="/my-test-results">
+              <SubmitButton>
+                View Results
+              </SubmitButton>
+            </NavLink>
+          </div>
       </>
     
     );
