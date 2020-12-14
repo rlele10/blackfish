@@ -14,7 +14,11 @@ const Home= props => {
 
           <Header as='h2' textAlign='center'> COVID-19 Testing </Header>
 
+          <br></br>
+
           <Header as='h3' textAlign='center'> Are you a </Header>
+
+          <br></br>
 
           <div style={{textAlign: 'center'}}>
             <NavLink to="/patient-intake">
