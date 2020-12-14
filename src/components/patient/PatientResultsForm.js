@@ -49,7 +49,7 @@ class PatientResultsForm extends PureComponent {
   }
 
   render() {
-    const { history } = this.props;
+
     return (
 
     <Container>
