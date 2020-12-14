@@ -12,23 +12,27 @@ const CovidTesting= props => {
       <>
       <OrcaLogo></OrcaLogo>
 
-          <Header as='h2' textAlign='center'> COVID-19 Testing </Header>
+          <Header as='h2' textAlign='center'> 
+            COVID-19 Testing 
+          </Header>
 
           <br></br>
 
-          <Header as='h3' textAlign='center'> Are you a </Header>
+          <Header as='h3' textAlign='center'> 
+            Are you a Patient or Provider? 
+          </Header>
 
           <br></br>
 
           <div style={{textAlign: 'center'}}>
             <NavLink to="/patient-intake">
-              <SubmitButton>
+              <SubmitButton >
                 Patient
               </SubmitButton>
             </NavLink>
           </div>
 
-          <Header as='h3' textAlign='center'> or</Header>
+          <br></br>
 
           <div style={{textAlign: 'center'}}>
             <NavLink to="/provider-intake">
@@ -39,6 +43,13 @@ const CovidTesting= props => {
           </div>
 
           <br></br>
+
+          <Header as='h3' textAlign='center'> 
+            If test results are ready you can view them &nbsp;
+            <NavLink to="/my-test-results">
+               here.
+            </NavLink>
+          </Header>
       </>
     
     );
