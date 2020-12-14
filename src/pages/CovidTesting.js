@@ -5,7 +5,7 @@ import OrcaLogo from '../components/images/OrcaLogo';
 import { SubmitButton } from '../components/styles/Button';
 
 
-const Home= props => {
+const CovidTesting= props => {
   console.log(props)
   
     return (
@@ -44,4 +44,4 @@ const Home= props => {
     );
 };
 
-export default Home;
+export default CovidTesting;

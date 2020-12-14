@@ -5,7 +5,7 @@ import ProviderResultsShow from './components/provider/ProviderResultsShow';
 import PatientIntakeForm from './components/patient/PatientIntake';
 import ProviderIntakeForm from './components/provider/ProviderIntake';
 import ErrorPage from './components/health/ErrorPage';
-import Home from './pages/Home';
+import CovidTesting from './pages/CovidTesting';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
@@ -13,7 +13,7 @@ const App = () => (
   <>
   <Router>
     <Route exact path="/error" component={ErrorPage} />
-    <Route  exact path="/" component={Home} />
+    <Route  exact path="/" component={CovidTesting} />
     <Route  exact path="/my-test-results" component={PatientResultsForm} />
     <Route  exact path="/patient-intake" component={PatientIntakeForm} />
     <Route  exact path="/provider-intake" component={ProviderIntakeForm} />
