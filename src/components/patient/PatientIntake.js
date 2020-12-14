@@ -21,17 +21,6 @@ const PatientIntakeForm = props => {
           </div>
 
           <br></br>
-
-          <div style={{margin: '3em'}}>
-          <Header as='h3' textAlign='center'> 
-            If you do not have health insurance or have opted out you can submit a payment &nbsp;
-            <NavLink to="/payment">
-               here.
-            </NavLink>
-          </Header>
-          </div>
-
-          <br></br>
           <br></br>
           <br></br>
           <br></br>
