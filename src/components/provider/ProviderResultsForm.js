@@ -50,7 +50,7 @@ class ProviderResultsForm extends PureComponent {
   }
 
   render() {
-    const { history } = this.props;
+
     return (
 
     <Container>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import {  Table, Header, Card } from 'semantic-ui-react';
-import { TableContainer } from '../styles/Table';
+import { Header } from 'semantic-ui-react';
 import PatientList from '../patient/PatientList';
 import OrcaLogo from '../images/OrcaLogo';
 

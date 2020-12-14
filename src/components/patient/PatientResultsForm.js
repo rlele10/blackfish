@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Container, Grid, Form} from 'semantic-ui-react';
 import { SubmitButton } from '../styles/Button';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import Disclaimer from '../shared/Disclaimer';
 import OrcaLogo from '../images/OrcaLogo';
 
@@ -49,11 +49,13 @@ class PatientResultsForm extends PureComponent {
   }
 
   render() {
-    const { history } = this.props;
+
     return (
 
     <Container>
-      <OrcaLogo></OrcaLogo>
+        <NavLink to="/" >
+          <OrcaLogo></OrcaLogo>
+        </NavLink>
           <Grid centered >
               <Grid.Row >
                   <Grid.Column width={12}>
