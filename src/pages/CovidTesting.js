@@ -19,6 +19,12 @@ const CovidTesting= props => {
           <br></br>
 
           <Header as='h3' textAlign='center'> 
+            If this is your first time testing with Orca Biotech please select from the following: 
+          </Header>
+
+          <br></br>
+
+          <Header as='h3' textAlign='center'> 
             Are you a Patient or Provider? 
           </Header>
 
@@ -43,9 +49,10 @@ const CovidTesting= props => {
           </div>
 
           <br></br>
+          <br></br>
 
           <Header as='h3' textAlign='center'> 
-            If test results are ready you can view them &nbsp;
+            If you've received an email saying results are ready you can view them&nbsp;
             <NavLink to="/my-test-results">
                here.
             </NavLink>
