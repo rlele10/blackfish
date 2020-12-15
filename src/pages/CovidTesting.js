@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { Header } from 'semantic-ui-react';
+import { StyledH1, StyledH2, StyledH3 } from '../components/styles/Header'
 import OrcaLogo from '../components/images/OrcaLogo';
 import { SubmitButton } from '../components/styles/Button';
 
@@ -11,23 +11,15 @@ const CovidTesting= props => {
     return (
       <>
       <OrcaLogo></OrcaLogo>
-
-          <Header as='h1' textAlign='center'> 
+          <StyledH1> 
             COVID-19 Testing 
-          </Header>
-
-          <br></br>
-
-          <Header as='h2' textAlign='center'> 
+          </StyledH1>
+          <StyledH2> 
             Patients
-          </Header>
-
-          <Header as='h3' textAlign='center'> 
-          If this is your first time testing with Orca Biotech, please register below:
-          </Header>
-
-          <br></br>
-
+          </StyledH2>
+          <StyledH3> 
+            If this is your first time testing with Orca Biotech, please register below:
+          </StyledH3>
           <div style={{textAlign: 'center'}}>
             <NavLink to="/patient-intake">
               <SubmitButton >
@@ -35,54 +27,30 @@ const CovidTesting= props => {
               </SubmitButton>
             </NavLink>
           </div>
-
-          <br></br>
-
-  
-
-          <Header as='h3' textAlign='center'> 
+          <StyledH3> 
             If you've received an email saying results are ready, click the button below:
-          </Header>
-
-          <br></br>
-
-          <div style={{textAlign: 'center'}}>
+          </StyledH3>
+          <div style={{textAlign: 'center' }}>
             <NavLink to="/my-test-results">
               <SubmitButton>
-                COVID Results
+                COVID Test Results
               </SubmitButton>
             </NavLink>
           </div>
-
-          <br></br>
-          <br></br>
-
-          <Header as='h2' textAlign='center'> 
+          <StyledH2> 
             Providers
-          </Header>
-
-          <Header as='h3' textAlign='center'> 
+          </StyledH2>
+          <StyledH3> 
           Register below before administering COVID tests to your patients:
-          </Header>
-
-          <br></br>
-
-          <div style={{textAlign: 'center'}}>
+          </StyledH3>
+          <div style={{textAlign: 'center', paddingBottom: '2em'}}>
             <NavLink to="/provider-intake">
               <SubmitButton>
                 Provider Registration
               </SubmitButton>
             </NavLink>
           </div>
-
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-
-
       </>
-    
     );
 };
 

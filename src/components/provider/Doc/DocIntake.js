@@ -15,16 +15,10 @@ const DocIntakeForm = props => {
         <Header as='h2' textAlign='center'>DOC Intake Form</Header>
           <div style={{textAlign: 'center'}}>
             <iframe 
-              title="DOC Intake Form" src="https://airtable.com/embed/shryRuh2Aksxen12R?backgroundColor=purple" frameborder="0" onmousewheel="" width="75%" height="1000">
+              title="DOC Intake Form" src="https://airtable.com/embed/shryRuh2Aksxen12R?backgroundColor=purple" frameborder="0" onmousewheel="" width="75%" height="1000" style={{marginBottom: '4em'}}>
             </iframe>
           </div>
-
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
       </>
-    
     );
 };
 
