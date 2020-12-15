@@ -13,54 +13,46 @@ const CovidTesting= props => {
       <OrcaLogo></OrcaLogo>
         <Grid centered>
           <Grid.Row>
-            <Grid.Column width={12}>
+            <Grid.Column width={8}>
               <Header as='h1' textAlign='center'> 
                 COVID-19 Testing 
               </Header>
-              <Header as='h2' style={{textDecoration: 'underline'}}> 
-                Patients
-              </Header>
-              <Header as='h2'> 
-                Test Registration
-              </Header>
               <Header as='h3' textAlign='center'> 
-                If this is your first time testing with Orca Biotech, please register below:
+                If this is your first time testing with Orca Biotech, please select from the following to register:
               </Header>
-              <div style={{textAlign: 'center'}}>
+              <div style={{textAlign: 'center', marginTop: '2em', marginBottom: '2em'}}>
                 <NavLink to="/patient-intake">
                   <SubmitButton >
-                    Patient Registration
+                    I am a Patient
                   </SubmitButton>
                 </NavLink>
               </div>
-              <Header as='h2'> 
-                Test Results
-              </Header>
+              <div style={{textAlign: 'center', marginBottom: '2em'}}>
+                <NavLink to="/provider-intake">
+                  <SubmitButton>
+                    I am a Provider
+                  </SubmitButton>
+                </NavLink>
+              </div>
               <Header as='h3' textAlign='center'> 
-                If you've received an email saying results are ready, click the button below:
+                If you have received an email saying your results are ready, click the button below:
               </Header>
-              <div style={{textAlign: 'center' }}>
+              <div style={{textAlign: 'center', marginTop: '2em', marginBottom: '2em'}}>
                 <NavLink to="/my-test-results">
                   <SubmitButton>
                     COVID-19 Test Results
                   </SubmitButton>
                 </NavLink>
               </div>
-              <Header as='h2' style={{textDecoration: 'underline'}}> 
-                Providers
-              </Header>
-              <Header as='h2'> 
-                Account Registration
-              </Header>
               <Header as='h3' textAlign='center'> 
-              Register below before administering COVID-19 tests to your patients:
+                If you need support, please contact us via the button below:
               </Header>
-              <div style={{textAlign: 'center', paddingBottom: '2em'}}>
-                <NavLink to="/provider-intake">
+              <div style={{textAlign: 'center', marginTop: '2em', marginBottom: '2em' }}>
+                <a href="mailto:results@orcabiotech.com" >
                   <SubmitButton>
-                    Provider Registration
+                    Support
                   </SubmitButton>
-                </NavLink>
+                </a>
               </div>
             </Grid.Column>
           </Grid.Row>
