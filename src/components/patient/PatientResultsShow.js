@@ -46,16 +46,12 @@ const PatientResultsShow = props => {
               </Table.Body>
             </Table>
           </TableContainer>
-
-          <br></br>
-
-          <div style={{textAlign: 'center'}}>
+          <div style={{textAlign: 'center', marginTop: '1em', paddingBottom: '1em'}}>
             <NavLink to="/" activeClassName="active" style={{fontSize: '1.25em', color: '#0058A2'}}>
             Go Back
             </NavLink>
           </div>
       </>
-    
     );
 };
 

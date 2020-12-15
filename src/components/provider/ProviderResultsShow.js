@@ -12,7 +12,6 @@ const ProviderResultsShow = props => {
       <>
       <OrcaLogo></OrcaLogo>
           <Header as='h3' textAlign='center'>{props.location.state.Ordering_Provider_Name}'s Patient List</Header>
-
           <div style={{textAlign: 'center'}}>
             <PatientList location={props.location}></PatientList>
           </div>

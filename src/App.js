@@ -4,6 +4,7 @@ import ProviderResultsForm from './components/provider/ProviderResultsForm';
 import ProviderResultsShow from './components/provider/ProviderResultsShow';
 import PatientIntakeForm from './components/patient/PatientIntake';
 import ProviderIntakeForm from './components/provider/ProviderIntake';
+import DocIntakeForm from './components/provider/Doc/DocIntake';
 import ErrorPage from './components/health/ErrorPage';
 import CovidTesting from './pages/CovidTesting';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -17,6 +18,7 @@ const App = () => (
     <Route  exact path="/my-test-results" component={PatientResultsForm} />
     <Route  exact path="/patient-intake" component={PatientIntakeForm} />
     <Route  exact path="/provider-intake" component={ProviderIntakeForm} />
+    <Route  exact path="/doc-intake" component={DocIntakeForm} />
     <Route path="/view-result" component={PatientResultsShow} />
     <Route exact path="/provider-results" component={ProviderResultsForm} />
     <Route path="/view-patient-list" component={ProviderResultsShow} />
