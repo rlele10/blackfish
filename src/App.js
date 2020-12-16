@@ -2,7 +2,7 @@ import PatientResultsForm from './components/patient/PatientResultsForm';
 import PatientResultsShow from './components/patient/PatientResultsShow';
 import ProviderResultsForm from './components/provider/ProviderResultsForm';
 import ProviderResultsShow from './components/provider/ProviderResultsShow';
-import PatientIntakeForm from './components/patient/PatientIntake';
+import PatientIntakeForm from './components/patient/PatientIntakeForm'
 import ProviderIntakeForm from './components/provider/ProviderIntake';
 import DocIntakeForm from './components/provider/Doc/DocIntake';
 import ErrorPage from './components/health/ErrorPage';

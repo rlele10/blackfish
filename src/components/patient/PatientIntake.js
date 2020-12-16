@@ -1,3 +1,5 @@
+// This can be removed once we have the PatientIntakeForm (React) complete //
+
 import React from 'react';
 import OrcaLogo from '../images/OrcaLogo';
 import {  Header } from 'semantic-ui-react';
