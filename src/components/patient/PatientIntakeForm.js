@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Disclaimer from '../shared/Disclaimer';
 import OrcaLogo from '../images/OrcaLogo';
 import OrcaCheckBox from './Checkbox';
+import axios from "axios";
 
 class PatientIntakeForm extends Component {
   state = { 
@@ -24,12 +25,62 @@ class PatientIntakeForm extends Component {
     checkedItems: new Map(),
   }
   componentDidMount () {
+    const data = {
+      "records": [
+        {
+          "fields": {
+            "First Name": "DeleteMe",
+            "Middle Name": "Edward",
+            "Last Name": "Pope",
+            "Date of Birth": "1972-09-11",
+            "Gender": "Male",
+            "Are you pregnant?": "N",
+            "Phone Number": "3855394970",
+            "Email Address": "mark_pope@byu.edu",
+            "Street Address": "1378 East Lancaster Way",
+            "City": "Orem",
+            "State": "UT",
+            "Zip Code": "84097",
+            "County": "Utah",
+            "Your Race": "White",
+            "Your Ethnicity": "Not of Hispanic, Latino or Spanish Origin",
+            "Insurance Company": "DMBA",
+            "Member ID or Policy Number": "001693249",
+            "Insurance Company Street Address": "PO Box 45530",
+            "Insurance Company City": "Salt Lake City",
+            "Insurance Company State": "UT",
+            "Insurance Company Zip": "84130-0783",
+            "Is this your first COVID-19 test?": "Y",
+            "Are you employed in healthcare?": "N",
+            "Are you exhibiting COVID-19 symptoms?": "N",
+            "Are you currently hospitalized?": "N",
+            "Are you currently in the ICU?": "N",
+            "Are you a resident in a care center?": "N",
+            "Disclaimer": "I Accept",
+            "Provider": "xxxxx",
+            "Tests_Info": [ ]
+          }
+        }
+      ]
+    }
+    let url = "https://api.airtable.com/v0/appKhP0lyazMGCfUR/Intakes" 
+    let axiosConfig = { headers: { Authorization: "Bearer " + 'keyKIECB3GLzSZLdQ' , 'Content-Type': 'application/json' } }
+    console.log(data)
+    console.log("sasdsdsdsdssd")
+    axios
+      .post(
+        url,
+        data,
+        axiosConfig
+      )
+      .then(resp => console.log(resp))
+      .catch(error => console.log(error))
     if (this.props.id) {
       const { firstName, middleName, lastName, dateOfBirth, phoneNum, email, streetAddress, city, zipCode, county, ssn, driversLicenseFront, driversLicenseBack } = this.props
       this.setState({ firstName, middleName, lastName, dateOfBirth, phoneNum, email, streetAddress, city, zipCode, county, ssn, driversLicenseFront, driversLicenseBack })
-    }
+  
   }
-
+  }
   handleInputChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
