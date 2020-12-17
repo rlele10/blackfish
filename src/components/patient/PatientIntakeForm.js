@@ -4,6 +4,7 @@ import { SubmitButton } from '../styles/Button';
 import { NavLink } from 'react-router-dom';
 import Disclaimer from '../shared/Disclaimer';
 import OrcaLogo from '../images/OrcaLogo';
+import OrcaCheckBox from './Checkbox';
 
 class PatientIntakeForm extends Component {
   state = { 
@@ -147,7 +148,6 @@ class PatientIntakeForm extends Component {
                   <Grid.Column width={12}>
 
                       <Form onSubmit={this.handleSubmit}>
-
                           <Form.Field>
                               <Form.Input 
                                 label="First Name" 
@@ -405,19 +405,15 @@ class PatientIntakeForm extends Component {
                             required
                           />
 
-                          <Form.Group>
-                            <label>Do you have any of the following health condition?</label>
-                            {
-                              healthConditionCheckboxes.map(item => (
-                                <ul>
-                                <label key={item.key}>
-                                  {item.name}
-                                  <Checkbox name={item.name} checked={this.state.checkedItems.get(item.name)} onChange={this.handleCheckboxChange} />
-                                </label>
-                                </ul>
-                              ))
-                            }
-                          </Form.Group>
+                         
+                          <Form.Field>
+                          <Form.Input 
+                              label="Do you have any of the following health condition?"                                                  
+                              type = "hidden"
+                        
+                            />
+                          </Form.Field>
+                          <OrcaCheckBox />
 
                           <Form.Select
                             options={symptomOptions}
