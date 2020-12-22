@@ -1,10 +1,14 @@
+// This can be deleted once individual forms are working //
+
+
 import React, { Component } from 'react';
 import { Container, Grid, Form} from 'semantic-ui-react';
-import { SubmitButton } from '../styles/Button';
+import { SubmitButton } from '../../styles/Button';
 import { NavLink } from 'react-router-dom';
-import Disclaimer from '../shared/Disclaimer';
-import OrcaLogo from '../images/OrcaLogo';
-import OrcaCheckBox from './Checkbox';
+import Disclaimer from '../../shared/Disclaimer';
+import OrcaLogo from '../../images/OrcaLogo';
+import HealthConditionCheckbox from './HealthConditionCheckbox';
+import SymptomCheckbox from './SymptomCheckbox';
 
 class PatientIntakeForm extends Component {
   state = { 
@@ -19,26 +23,20 @@ class PatientIntakeForm extends Component {
     zipCode: '',
     county: '',
     ssn: '',
-    driversLicenseFront: '',
-    driversLicenseBack: '',
+    photoIDFront: '',
+    photIDBack: '',
     checkedItems: new Map(),
   }
   componentDidMount () {
     if (this.props.id) {
-      const { firstName, middleName, lastName, dateOfBirth, phoneNum, email, streetAddress, city, zipCode, county, ssn, driversLicenseFront, driversLicenseBack } = this.props
-      this.setState({ firstName, middleName, lastName, dateOfBirth, phoneNum, email, streetAddress, city, zipCode, county, ssn, driversLicenseFront, driversLicenseBack })
+      const { firstName, middleName, lastName, dateOfBirth, phoneNum, email, streetAddress, city, zipCode, county, ssn, photoIDFront, photoIDBack } = this.props
+      this.setState({ firstName, middleName, lastName, dateOfBirth, phoneNum, email, streetAddress, city, zipCode, county, ssn, photoIDFront, photoIDBack })
     }
   }
 
   handleInputChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
-  }
-
-  handleCheckboxChange(e) {
-    const item =e.target.name;
-    const isChecked = e.target.checked;
-    this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
   }
 
   handleSubmit = (e) => {
@@ -53,17 +51,18 @@ class PatientIntakeForm extends Component {
         email: '', 
         streetAddress: '', 
         city: '',
+        state: '',
         zipCode: '',
         county: '',
         ssn: '',
-        driversLicenseFront: '',
-        driversLicenseBack: '',
+        photoIDFront: '',
+        photoIDBack: '',
       }
     )
   }
 
   render() {
-    const { firstName, middleName, lastName, dateOfBirth, phoneNum, email, streetAddress, city, zipCode, county, ssn, driversLicenseFront, driversLicenseBack } = this.state
+    const { firstName, middleName, lastName, dateOfBirth, phoneNum, email, streetAddress, city, state, zipCode, county, ssn, photoIDFront, photoIDBack } = this.state
 
     const genderOptions = [
       { key: '0', text: 'Male', value: 'male'},
@@ -101,41 +100,7 @@ class PatientIntakeForm extends Component {
     const insuranceOptions = [
       { key: '0', text: 'Y - I have health insurance that will be billed for this test', value: 'yes'},
       { key: '1', text: 'N - I do not have health insurance', value: 'no'},
-      { key: '2', text: 'Opt Out - Do not bill my insurance I will pay cash', value: 'opt_out'},
-    ]
-
-    const healthConditionCheckboxes = [
-      { key: '0', name: 'None', label: "none"},
-      { key: '1', name: 'Liver Disease', label: 'liver_disease'},
-      { key: '2', name: 'Current cancer treatment', label: 'current_cancer_treatment'},
-      { key: '3', name: 'Deficiencies of the immune system or HIV', label: 'immune_system_HIV'},
-      { key: '4', name: 'Diabetes', label: 'diabetes'},
-      { key: '5', name: 'Kidney Disease requiring dialysis', label: 'kidney_disease'},
-      { key: '6', name: 'Moderate to severe Asthma', label: 'asthma'},
-      { key: '7', name: 'Obesity', label: 'obesity'},
-      { key: '8', name: 'Organ or bone marrow transplant', label: 'transplant'},
-      { key: '9', name: 'Serious heart conditions', label: 'heart_conditions'},
-      { key: '10', name: 'Sickle cell, thalassemia, or other hemoglobin disease', label: 'hemoglobin_disease'},
-      { key: '11', name: 'Taking medications that weaken the immune system (such as steroids)', label: 'medications'},
-    ]
-
-    const Checkbox = ({ type = 'checkbox', name, checked = false, handleCheckboxChange }) => (
-      <input type={type} name={name} checked={checked} onChange={handleCheckboxChange} />
-    );
-
-    const symptomOptions = [
-      { key: '0', text: 'None', value: 'none'},
-      { key: '1', text: 'Fever or Chills', value: 'fever_chills'},
-      { key: '2', text: 'Cough', value: 'cough'},
-      { key: '3', text: 'Shortness of breath or difficulty breathing', value: 'breathing'},
-      { key: '4', text: 'Fatigue', value: 'fatigue'},
-      { key: '5', text: 'Muscle or body aches', value: 'aches'},
-      { key: '6', text: 'Headache', value: 'headache'},
-      { key: '7', text: 'New loss of taste or smell', value: 'taste_smell'},
-      { key: '8', text: 'Sore throat', value: 'sore_throat'},
-      { key: '9', text: 'Congestion or runny nose', value: 'congestion_runny_nose'},
-      { key: '10', text: 'Nausea or vomiting', value: 'nausea_vomiting'},
-      { key: '11', text: 'Diarrhea', value: 'diarrhea'},
+      { key: '2', text: 'Opt Out - Do not bill my insurance I will pay', value: 'opt_out'},
     ]
 
     return (
@@ -197,7 +162,6 @@ class PatientIntakeForm extends Component {
                                 label="Select your gender" 
                                 placeholder="Gender"
                                 name = "gender"
-                                value = {genderOptions}
                                 onChange={this.handleInputChange}
                                 required
                               />
@@ -259,6 +223,17 @@ class PatientIntakeForm extends Component {
 
                           <Form.Field>
                               <Form.Input 
+                                label="State (current residence)" 
+                                placeholder="State"
+                                name = "state"
+                                value = {state}
+                                onChange={this.handleInputChange}
+                                required
+                              />
+                          </Form.Field>
+
+                          <Form.Field>
+                              <Form.Input 
                                 label="Zip Code (current residence)" 
                                 placeholder="Zip Code"
                                 name = "zipCode"
@@ -313,8 +288,8 @@ class PatientIntakeForm extends Component {
                           <Form.Input 
                               label="Drivers License or Photo ID Front Image " 
                               placeholder="Drivers License or Photo ID Front Image "
-                              name = "driversLicenseFront"
-                              value = {driversLicenseFront}
+                              name = "photoIDFront"
+                              value = {photoIDFront}
                               type = "file"
                               onChange={this.handleInputChange}
                               required
@@ -325,8 +300,8 @@ class PatientIntakeForm extends Component {
                           <Form.Input 
                               label="Drivers License or Photo ID Back Image " 
                               placeholder="Drivers License or Photo ID Back Image "
-                              name = "driversLicenseBack"
-                              value = {driversLicenseBack}
+                              name = "photoIDBack"
+                              value = {photoIDBack}
                               type = "file"
                               onChange={this.handleInputChange}
                               required
@@ -395,34 +370,24 @@ class PatientIntakeForm extends Component {
                             onChange={this.handleInputChange}
                             required
                           />
-
-                          <Form.Select
-                            options={booleanOptions}
-                            label="Are you a resident in a care center?" 
-                            placeholder="Are you a resident in a care center?"
-                            name = "careCenter"
-                            onChange={this.handleInputChange}
-                            required
-                          />
-
                          
                           <Form.Field>
                           <Form.Input 
                               label="Do you have any of the following health condition?"                                                  
                               type = "hidden"
-                        
                             />
                           </Form.Field>
-                          <OrcaCheckBox />
 
-                          <Form.Select
-                            options={symptomOptions}
-                            label="Are you experiencing any following symptoms? (check all that apply)" 
-                            placeholder="Are you experiencing any following symptoms? (check all that apply)"
-                            name = "symptoms"
-                            onChange={this.handleInputChange}
-                            required
-                          />
+                          <HealthConditionCheckbox />
+
+                          <Form.Field>
+                          <Form.Input 
+                              label="Are you experiencing any following symptoms? (check all that apply)"                                                  
+                              type = "hidden"
+                            />
+                          </Form.Field>
+
+                          <SymptomCheckbox />
 
                           <Form.Select
                             options={booleanOptions}
@@ -438,6 +403,15 @@ class PatientIntakeForm extends Component {
                             label="Has a healthcare provider advised you to be tested for COVID-19?" 
                             placeholder="Has a healthcare provider advised you to be tested for COVID-19?"
                             name = "advisedForTesting"
+                            onChange={this.handleInputChange}
+                            required
+                          />
+
+                          <Form.Select
+                            options={insuranceOptions}
+                            label="Do you have health insurance to be billed?" 
+                            placeholder="Health insurance options"
+                            name = "insurance"
                             onChange={this.handleInputChange}
                             required
                           />
